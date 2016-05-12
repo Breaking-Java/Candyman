@@ -1,14 +1,16 @@
-class Graficos
-{
 
-  int num_pantalla = 1;
   PImage menu = loadImage("images/Menu.png");
   PImage atras, atras2;
   PImage b_iniciar, b_instruc, b_config, b_cred, b_salir;
   PImage b_exit, bc_exit, b_home, bc_home;
   PImage field, credits;
   PImage mouseCursor;
-  Config config;
+  color ColorMono;
+
+class Graficos
+{
+
+  
   
   void Inicio(){
     switch(num_pantalla)
@@ -101,7 +103,6 @@ class Graficos
   /*Pantalla INSTRUCCIONES*/
   void Instrucciones()
   {
-    config = new Config();
     background(255);
     
     //image(atras2,100,100);

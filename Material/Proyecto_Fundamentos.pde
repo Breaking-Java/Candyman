@@ -2,13 +2,23 @@ import kinect4WinSDK.Kinect;
 import kinect4WinSDK.SkeletonData;
 import java.lang.Math;
 
-Kinect kinect = new Kinect(this);
-ArrayList <SkeletonData> bodies = new ArrayList<SkeletonData>();
+Kinect kinect;
+ArrayList <SkeletonData> bodies;
+color ColorFondo= color(100,100,255);
+color ColorMono= color(255);
+color ColorArco= color(100,100);
 
-class Movement
-{ 
-  void IniciaKinect() {
-
+void setup() {
+  size (1024, 768);
+  kinect = new Kinect(this);
+  smooth();
+  bodies = new ArrayList<SkeletonData>();
+  ellipseMode (CENTER);
+  rectMode (CENTER);
+}
+ 
+void draw() {
+  DibujaMono();
   image(kinect.GetImage(), 320, 0, 320, 240);
   image(kinect.GetDepth(), 320, 240, 320, 240);
   image(kinect.GetMask(), 0, 240, 320, 240);
@@ -37,6 +47,43 @@ class Movement
   //System.out.println(Kinect.NUI_SKELETON_POSITION_HAND_RIGHT);
   //System.out.println(Kinect.NUI_SKELETON_POSITION_SHOULDER_RIGHT);
 }
+
+void DibujaMono(){
+  background(100,100,255);
+  //Head
+  ellipse (150, 60, 50, 50);
+  ellipse (140, 60,10,10);
+  ellipse (160, 60, 10,10);
+  //Body
+  rect (150, 135, 50, 100);
+  //Arms
+  pushMatrix();
+  translate(125,85);
+  rotate(map(mouseX,0,width,-PI,PI));
+  line (0,0, 25, 130);
+  popMatrix();
+  pushMatrix();
+  translate(175,85);
+  rotate(map(mouseX,0,width,-PI,PI));
+  line (0,0, 25, 75);
+  line (25,75, 40, 115);
+  fill(100,100);
+  arc(25, 75, 75, 75, 0, PI-PI/9);
+  fill(255);
+  popMatrix();  
+  //Legs
+  pushMatrix();
+  translate(130,185);
+  line (0,0, 0, 65);
+  line (0,65, -5, 65);
+  popMatrix();
+  pushMatrix();
+  translate(170,185);
+  line (0,0,0,65);
+  line (0,65,5,65);
+  popMatrix();
+}
+
 void drawPosition(SkeletonData _s) 
 {
   noStroke();
@@ -177,6 +224,4 @@ void moveEvent(SkeletonData _b, SkeletonData _a)
       }
     }
   }
-}
-  
 }

@@ -19,6 +19,6 @@ class Audio
   }
   
   void ApagarMusica(){
-    background_music.close();
+    background_music.pause();
   }
 }
