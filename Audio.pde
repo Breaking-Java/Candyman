@@ -17,4 +17,8 @@ class Audio
     background_music.loop();
     return;
   }
+  
+  void ApagarMusica(){
+    background_music.close();
+  }
 }
