@@ -1,4 +1,3 @@
-
 class Config
 {
   void disableAudio(){
@@ -26,4 +25,5 @@ class Config
   void setVida(int n){
     numVida = n;
   }
+  
 }

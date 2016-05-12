@@ -1,17 +1,16 @@
-
-  PImage menu = loadImage("images/Menu.png");
-  PImage atras, atras2;
-  PImage b_iniciar, b_instruc, b_config, b_cred, b_salir;
-  PImage b_exit, bc_exit, b_home, bc_home;
-  PImage field, credits;
-  PImage mouseCursor;
-  color ColorMono;
+PImage menu;
+PImage atras, atras2;
+PImage b_iniciar, b_instruc, b_config, b_cred, b_salir;
+PImage b_exit, bc_exit, b_home, bc_home;
+PImage field, credits;
+PImage mouseCursor;
+color ColorMono;
 
 class Graficos
 {
-
-  
-  
+  void iniciarGraficos(){
+    menu = loadImage("images/Menu.png");
+  }
   void Inicio(){
     switch(num_pantalla)
     {
@@ -45,8 +44,7 @@ class Graficos
     background (menu);
     if(mouseX>658 && mouseX<978 && mouseY>170 && mouseY<245){
     //image(b_iniciar,653,161);
-   
-    //button_candy.play();
+    audio.SonidoBoton();
 
       if (mousePressed && (mouseButton == LEFT)){
        num_pantalla = 2;
