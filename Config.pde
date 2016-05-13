@@ -25,5 +25,8 @@ class Config
   void setVida(int n){
     numVida = n;
   }
+  int getVida(){
+      return numVida;
+  }
   
 }

@@ -10,6 +10,7 @@ class Graficos
 {
   void iniciarGraficos(){
     menu = loadImage("images/Menu.png");
+    field = loadImage("images/field.png");
   }
   void Inicio(){
     switch(num_pantalla)
@@ -86,7 +87,7 @@ class Graficos
   
   void Juego()
   {
-    //background (field);
+    background (field);
    
     //image(atras,100,100); 
   

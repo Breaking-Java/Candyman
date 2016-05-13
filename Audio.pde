@@ -9,7 +9,7 @@ Minim minim= new Minim(this);
 
 class Audio
 {
-  AudioPlayer background_music = minim.loadFile( "sound/BackgroundMusic.wav");
+  AudioPlayer background_music = minim.loadFile( "sound/Candyman.wav");
   AudioPlayer button_sound = minim.loadFile( "sound/BackgroundMusic.wav");
   
   void MusicaFondo()

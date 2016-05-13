@@ -4,6 +4,7 @@ Graficos graficos;
 Audio audio;
 Config config;
 Movement move;
+Juego game;
 
 void setup()
 {
@@ -12,6 +13,7 @@ void setup()
    audio = new Audio();
    config = new Config();
    move = new Movement();
+   game = new Juego();
    graficos.iniciarGraficos();
    audio.MusicaFondo();
 }
