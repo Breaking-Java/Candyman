@@ -7,6 +7,8 @@ import ddf.minim.ugens.*;
 
 Minim minim= new Minim(this);
 
+boolean mute = false;
+
 class Audio
 {
   AudioPlayer background_music = minim.loadFile( "sound/Candyman.wav");
@@ -14,12 +16,29 @@ class Audio
   
   void MusicaFondo()
   {
-    background_music.loop();
+    if(mute!=true){
+      background_music.loop();
+    }
   }
   void MusicaJuego(){
-    game_music.loop();
+    if(mute!=true){
+      game_music.loop();
+    }
   }
-  void ApagarMusica(){
+  void ApagaMusica(){
     background_music.pause();
+    game_music.pause();
+  }
+  void ApagaFondo(){
+    background_music.pause();
+  }
+  void ApagaJuego(){
+    game_music.pause();
+  }
+  void setMute(){
+    mute = true;
+  }
+  void quitMute(){
+    mute = false;
   }
 }

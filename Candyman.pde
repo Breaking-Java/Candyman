@@ -21,6 +21,7 @@ void setup()
 void draw(){
     graficos.Inicio();
     move.IniciaKinect();
+    System.out.println(ColorMono);
 }
 
 void drawPosition(SkeletonData _s) 

@@ -1,0 +1,30 @@
+DECLARACION DE VARIABLES.
+//////////////////////////
+  PImage b_yes, b_no;
+  PImage you_lose, you_won;
+
+
+SETUP
+//////////////////////////
+  b_yes=loadImage ("buttons/yes.png");
+  b_no=loadImage ("buttons/no.png");
+  you_lose=loadImage ("windows/you_lose.png");
+  you_won=loadImage ("windows/you_won.png");
+
+
+EN EL CAMPO
+//////////////////////////
+background (you_won);
+  //background (you_lose);
+
+if (mouseX>255 && mouseX<512 && mouseY>511 && mouseY<575) {
+    image(b_yes, 255,511);
+    if (mousePressed && (mouseButton == LEFT)) {
+    }
+  }
+
+if (mouseX>512 && mouseX<769 && mouseY>511 && mouseY<575) {
+    image(b_no,512,511);
+    if (mousePressed && (mouseButton == LEFT)) {
+    }
+  }

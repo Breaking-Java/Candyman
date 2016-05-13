@@ -1,24 +1,18 @@
 class Config
 {
-  void disableAudio(){
-      audio.ApagarMusica();
-  }
-  void enableAudio(){
-      audio.MusicaFondo();
-  }
   void setColor(int i){
     switch(i){
       case 1:
-        ColorMono = (0);
+        ColorMono = color(70,43,1);
         break;
       case 2:
-        ColorMono = (255);
+        ColorMono = (0);
         break;
       case 3:
-        ColorMono = (255);
+        ColorMono = color(101,151,66);
         break;
       case 4:
-        ColorMono = (255);
+        ColorMono = color(63,100,168);
         break;
     }
   }
@@ -26,7 +20,7 @@ class Config
     numVida = n;
   }
   int getVida(){
-      return 1;
+      return numVida;
   }
   
 }

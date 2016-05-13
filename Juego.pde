@@ -1,4 +1,4 @@
-int numVida;
+int numVida = 1;
 /*
 int numVida = config.getVida();
 int diameter = 6; 

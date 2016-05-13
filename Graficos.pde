@@ -1,5 +1,5 @@
-PImage menu, atras, atras2, b_iniciar, b_instruc, b_config, b_cred, b_salir, b_exit, bc_exit, b_home, bc_home, field, credits, mouseCursor, intento1,intento2,intento3,intento4,intento5, green_character, blue_character, brown_character, black_character, gris_menu, gris_salir, volume, no_volume, conf;
-color ColorMono;
+PImage menu, atras, atras2, b_iniciar, b_instruc, b_config, b_cred, b_salir, b_exit, bc_exit, b_home, bc_home, field, credits, mouseCursor, intento1,intento2,intento3,intento4,intento5, green_character, blue_character, brown_character, black_character, gris_menu, gris_salir, volume, no_volume, conf, b_yes, b_no, you_lose, you_won;
+color ColorMono =color(70,43,1);
 
 class Graficos
 {
@@ -72,7 +72,7 @@ class Graficos
 
       if (mousePressed && (mouseButton == LEFT)){
        num_pantalla = 2;
-       audio.ApagarMusica();
+       audio.ApagaFondo();
        audio.MusicaJuego();
       }
     }
@@ -151,6 +151,8 @@ class Graficos
   if (mouseX>425 && mouseX<513 && mouseY>310 && mouseY<398) {
     image(volume, 425, 310);
     if (mousePressed && (mouseButton == LEFT)) {
+      audio.quitMute();
+      audio.MusicaFondo();
     }
   }
   
@@ -158,6 +160,8 @@ class Graficos
   if (mouseX>555 && mouseX<643 && mouseY>315 && mouseY<403) {
     image(no_volume, 555, 315);
     if (mousePressed && (mouseButton == LEFT)) {
+      audio.ApagaMusica();
+      audio.setMute();
     }
   }
   
@@ -167,6 +171,7 @@ class Graficos
   if (mouseX>430 && mouseX<490 && mouseY>425 && mouseY<550) {
     image(green_character, 430, 425);
     if (mousePressed && (mouseButton == LEFT)) {
+      config.setColor(3);
     }
   }
   
@@ -174,6 +179,7 @@ class Graficos
   if (mouseX>510 && mouseX<570 && mouseY>425 && mouseY<550) {
     image(blue_character, 510, 425);
     if (mousePressed && (mouseButton == LEFT)) {
+      config.setColor(4);
     }
   }
   
@@ -181,6 +187,7 @@ class Graficos
   if (mouseX>590 && mouseX<650 && mouseY>425 && mouseY<550) {
     image(brown_character, 590, 425);
     if (mousePressed && (mouseButton == LEFT)) {
+      config.setColor(1);
     }
   }
   
@@ -188,6 +195,7 @@ class Graficos
   if (mouseX>670 && mouseX<730 && mouseY>425 && mouseY<550) {
     image(black_character, 665, 425);
     if (mousePressed && (mouseButton == LEFT)) {
+      config.setColor(2);
     }
   }
   
@@ -196,6 +204,7 @@ class Graficos
   if (mouseX>400 && mouseX<468 && mouseY>610 && mouseY<658) {
     image(intento1, 400, 610);
     if (mousePressed && (mouseButton == LEFT)) {
+      config.setVida(1);
     }
   }
   
@@ -203,6 +212,7 @@ class Graficos
   if (mouseX>475 && mouseX<543 && mouseY>610 && mouseY<658) {
     image(intento2, 475, 610);
     if (mousePressed && (mouseButton == LEFT)) {
+      config.setVida(2);
     }
   }
   
@@ -210,6 +220,7 @@ class Graficos
   if (mouseX>550 && mouseX<618 && mouseY>610 && mouseY<658) {
     image(intento3, 550, 610);
     if (mousePressed && (mouseButton == LEFT)) {
+      config.setVida(3);
     }
   }
   
@@ -217,6 +228,7 @@ class Graficos
   if (mouseX>625 && mouseX<693 && mouseY>610 && mouseY<658) {
     image(intento4, 625, 610);
     if (mousePressed && (mouseButton == LEFT)) {
+      config.setVida(4);
     }
   }
   
@@ -224,6 +236,7 @@ class Graficos
   if (mouseX>700 && mouseX<768 && mouseY>610 && mouseY<658) {
     image(intento5, 700, 610);
     if (mousePressed && (mouseButton == LEFT)) {
+      config.setVida(5);
     }
   }
   
@@ -234,6 +247,7 @@ class Graficos
     image(gris_menu, 820, 655);
     if (mousePressed && (mouseButton == LEFT)) {
      num_pantalla = 1;
+     audio.MusicaJuego();
     }
   }
   
