@@ -14,7 +14,7 @@ void setup()
    config = new Config();
    move = new Movement();
    //game = new Juego();
-   graficos.iniciarGraficos();
+   graficos.CargarGraficos();
    audio.MusicaFondo();
 }
 

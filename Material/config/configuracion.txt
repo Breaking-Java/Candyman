@@ -1,0 +1,139 @@
+VARIABLES.
+//////////////////////////////////////////////////
+PImage intento1,intento2,intento3,intento4,intento5;
+PImage green_character, blue_character, brown_character, black_character;
+PImage gris_menu, gris_salir;
+PImage volume, no_volume;
+PImage config;
+//////////////////////////////////////////////////
+
+
+SETUP
+ //////////////////////////////////////////////////////////
+  intento1=loadImage ("buttons/1intento.png");
+  intento2=loadImage ("buttons/2intento.png");
+  intento3=loadImage ("buttons/3intento.png");
+  intento4=loadImage ("buttons/4intento.png");
+  intento5=loadImage ("buttons/5intento.png");
+  
+  green_character=loadImage ("buttons/green_character.png");
+  blue_character=loadImage ("buttons/blue_character.png");
+  brown_character=loadImage ("buttons/brown_character.png");
+  black_character=loadImage ("buttons/black_character.png");
+  
+  gris_menu=loadImage ("buttons/gris_menu.png");
+  gris_salir=loadImage ("buttons/gris_salir.png");
+  
+  volume=loadImage ("buttons/volume.png");
+  no_volume=loadImage ("buttons/no_volume.png");
+
+  config = loadImage("windows/config.png");
+  /////////////////////////////////////////////////////////
+
+
+PANTALLA CONFIGURACION
+/*Pantalla CONFIGURACIÓN*/
+void pantalla_cuatro()
+{
+  background(config);
+  
+  
+  /*Volume*/
+  if (mouseX>425 && mouseX<513 && mouseY>310 && mouseY<398) {
+    image(volume, 425, 310);
+    if (mousePressed && (mouseButton == LEFT)) {
+    }
+  }
+  
+   /*No Volume*/
+  if (mouseX>555 && mouseX<643 && mouseY>315 && mouseY<403) {
+    image(no_volume, 555, 315);
+    if (mousePressed && (mouseButton == LEFT)) {
+    }
+  }
+  
+  
+  
+  /*Green*/
+  if (mouseX>430 && mouseX<490 && mouseY>425 && mouseY<550) {
+    image(green_character, 430, 425);
+    if (mousePressed && (mouseButton == LEFT)) {
+    }
+  }
+  
+  /*Blue*/
+  if (mouseX>510 && mouseX<570 && mouseY>425 && mouseY<550) {
+    image(blue_character, 510, 425);
+    if (mousePressed && (mouseButton == LEFT)) {
+    }
+  }
+  
+  /*Brown*/
+  if (mouseX>590 && mouseX<650 && mouseY>425 && mouseY<550) {
+    image(brown_character, 590, 425);
+    if (mousePressed && (mouseButton == LEFT)) {
+    }
+  }
+  
+  /*Black*/
+  if (mouseX>670 && mouseX<730 && mouseY>425 && mouseY<550) {
+    image(black_character, 665, 425);
+    if (mousePressed && (mouseButton == LEFT)) {
+    }
+  }
+  
+  
+  /*Intento1*/
+  if (mouseX>400 && mouseX<468 && mouseY>610 && mouseY<658) {
+    image(intento1, 400, 610);
+    if (mousePressed && (mouseButton == LEFT)) {
+    }
+  }
+  
+  /*Intento2*/
+  if (mouseX>475 && mouseX<543 && mouseY>610 && mouseY<658) {
+    image(intento2, 475, 610);
+    if (mousePressed && (mouseButton == LEFT)) {
+    }
+  }
+  
+  /*Intento3*/
+  if (mouseX>550 && mouseX<618 && mouseY>610 && mouseY<658) {
+    image(intento3, 550, 610);
+    if (mousePressed && (mouseButton == LEFT)) {
+    }
+  }
+  
+  /*Intento4*/
+  if (mouseX>625 && mouseX<693 && mouseY>610 && mouseY<658) {
+    image(intento4, 625, 610);
+    if (mousePressed && (mouseButton == LEFT)) {
+    }
+  }
+  
+  /*Intento5*/
+  if (mouseX>700 && mouseX<768 && mouseY>610 && mouseY<658) {
+    image(intento5, 700, 610);
+    if (mousePressed && (mouseButton == LEFT)) {
+    }
+  }
+  
+  
+  
+  /*Volver al menu*/
+  if (mouseX>820 && mouseX<895 && mouseY>655 && mouseY<745) {
+    image(gris_menu, 820, 655);
+    if (mousePressed && (mouseButton == LEFT)) {
+     num_pantalla = 1;
+    }
+  }
+  
+  /*Cerrar*/
+  if (mouseX>920 && mouseX<1010 && mouseY>655 && mouseY<745) {
+    image(gris_salir, 920, 655);
+    if (mousePressed && (mouseButton == LEFT)) {
+     exit();
+    }
+  }
+}
+
