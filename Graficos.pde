@@ -11,6 +11,7 @@ class Graficos
   void iniciarGraficos(){
     menu = loadImage("images/Menu.png");
     b_iniciar = loadImage("images/CInicio.png");
+    //field = loadImage("images/field.png");
   }
   void Inicio(){
     switch(num_pantalla)

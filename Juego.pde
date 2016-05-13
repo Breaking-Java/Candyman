@@ -1,5 +1,6 @@
 int numVida;
-
+/*
+int numVida = config.getVida();
 int diameter = 6; 
 
 int gravedad = 10;
@@ -105,7 +106,7 @@ public void mouseReleased()
       drawFrame();
       refreshSling();
     }
-  }*/
+  }
    
   if (mouseX > width - 130 && mouseX < width - 50 && mouseY > 370 && mouseY < 390)
   {
@@ -136,4 +137,4 @@ public void mouseReleased()
   
   
   
-}
+}*/

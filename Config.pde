@@ -26,7 +26,7 @@ class Config
     numVida = n;
   }
   int getVida(){
-      return numVida;
+      return 1;
   }
   
 }
