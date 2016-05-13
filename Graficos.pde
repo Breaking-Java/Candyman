@@ -10,6 +10,7 @@ class Graficos
 {
   void iniciarGraficos(){
     menu = loadImage("images/Menu.png");
+    b_iniciar = loadImage("images/CInicio.png");
   }
   void Inicio(){
     switch(num_pantalla)
@@ -43,11 +44,13 @@ class Graficos
   {
     background (menu);
     if(mouseX>658 && mouseX<978 && mouseY>170 && mouseY<245){
-    //image(b_iniciar,653,161);
-    audio.SonidoBoton();
+    image(b_iniciar,653,161);
+    
 
       if (mousePressed && (mouseButton == LEFT)){
        num_pantalla = 2;
+       audio.ApagarMusica();
+       audio.MusicaJuego();
       }
     }
     
@@ -167,7 +170,7 @@ class Graficos
    //atras2 = loadImage("back2.png");
    
    /*Cargar botones*/
-   //b_iniciar = loadImage("buttons/change_inicio.png");
+   //b_iniciar = 
    //b_instruc = loadImage("buttons/change_instrucciones.png");
    //b_config = loadImage("buttons/change_configuracion.png");
    //b_cred = loadImage("buttons/change_credits.png");

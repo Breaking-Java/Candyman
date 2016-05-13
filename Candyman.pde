@@ -19,7 +19,6 @@ void setup()
 void draw(){
     graficos.Inicio();
     move.IniciaKinect();
-    //System.out.println(x1);
 }
 
 void drawPosition(SkeletonData _s) 
