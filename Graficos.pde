@@ -33,6 +33,10 @@ class Graficos
     volume=loadImage ("images/volume.png");
     no_volume=loadImage ("images/no_volume.png");
     conf = loadImage("images/config.png");
+    b_yes=loadImage ("images/yes.png");
+    b_no=loadImage ("images/no.png");
+    you_lose=loadImage ("images/you_lose.png");
+    you_won=loadImage ("images/you_won.png");
     cursor(mouseCursor,0,0);
   }
   void Inicio(){
@@ -42,21 +46,18 @@ class Graficos
               IniciaMenu();//Menú principal.
               break;
       case 2:
-              Juego();//Iniciar.
-              
+              Ganaste();//Iniciar.
+              Juego();
               break;
       case 3:
               Instrucciones();//Instrucciones.
               break;
-              
       case 4:
               Configuracion();//Configuración.
               break;
-              
       case 5:
               Creditos();//Créditos.
               break;
-              
       case 6:
               exit();//Salir.
               break;
@@ -272,5 +273,31 @@ class Graficos
             num_pantalla = 1;
             }
     }
+  }
+  void Ganaste(){
+    background (you_won);
+    if (mouseX>255 && mouseX<512 && mouseY>511 && mouseY<575) {
+    image(b_yes, 255,511);
+    if (mousePressed && (mouseButton == LEFT)) {
+    }
+  }
+  if (mouseX>512 && mouseX<769 && mouseY>511 && mouseY<575) {
+    image(b_no,512,511);
+    if (mousePressed && (mouseButton == LEFT)) {
+    }
+  }
+  }
+  void Perdiste(){
+    background (you_lose);
+    if (mouseX>255 && mouseX<512 && mouseY>511 && mouseY<575) {
+    image(b_yes, 255,511);
+    if (mousePressed && (mouseButton == LEFT)) {
+    }
+  }
+    if (mouseX>512 && mouseX<769 && mouseY>511 && mouseY<575) {
+    image(b_no,512,511);
+    if (mousePressed && (mouseButton == LEFT)) {
+    }
+  }
   }
 }
