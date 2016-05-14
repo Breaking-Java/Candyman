@@ -1,11 +1,12 @@
-PImage menu, atras, atras2, b_iniciar, b_instruc, b_config, b_cred, b_salir, b_exit, bc_exit, b_home, bc_home, field, credits, mouseCursor, intento1,intento2,intento3,intento4,intento5, green_character, blue_character, brown_character, black_character, gris_menu, gris_salir, volume, no_volume, conf, b_yes, b_no, you_lose, you_won;
+PImage menu, atras, atras2, b_iniciar, b_instruc, b_config, b_cred, b_salir, b_exit, bc_exit, b_home, bc_home, field, credits, mouseCursor, intento1,intento2,intento3,intento4,intento5, green_character, blue_character, brown_character, black_character, gris_menu, gris_salir, volume, no_volume, conf, b_yes, b_no, you_lose, you_won,start_instruction1;
+PImage[] control = new PImage[3];
 color ColorMono =color(70,43,1);
-
-int Mx=0, My=0;
-
+boolean tuto=true;
+int Mx=0,My=0,num_pantalla = 7,frame;
 class Graficos
 {
   void CargarGraficos(){
+      start_instruction1 = loadImage ("images/gesture_background.png");
     menu = loadImage("images/Menu.png");
     b_iniciar = loadImage("images/CInicio.png");
     field = loadImage("images/Field.png");
@@ -39,7 +40,19 @@ class Graficos
     b_no=loadImage ("images/no.png");
     you_lose=loadImage ("images/you_lose.png");
     you_won=loadImage ("images/you_won.png");
-    noCursor();
+    control[0]  = loadImage("images/00.png");
+    control[1]  = loadImage("images/01.png"); 
+    control[2]  = loadImage("images/02.png");
+    //noCursor();
+  }
+  void Tutorial(){
+      while(tuto){
+        background(start_instruction1);
+        System.out.println(frame);
+      frame = (frame+1) % 3;  //Para crear el ciclo
+      image(control[frame], 10, 200, 550, 385);
+      delay(1000);
+    if(frame==2){num_pantalla=1;}}
   }
   void Inicio(){
     Mx = int((x1*2)*1024);
@@ -63,6 +76,9 @@ class Graficos
               break;
       case 6:
               exit();//Salir.
+              break;
+      case 7:
+              Tutorial();
               break;
     }
   }

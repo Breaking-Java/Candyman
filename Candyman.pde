@@ -1,5 +1,3 @@
-int num_pantalla = 1;
-
 Graficos graficos;
 Audio audio;
 Config config;
@@ -15,10 +13,12 @@ void setup()
    move = new Movement();
    //game = new Juego();
    graficos.CargarGraficos();
+   graficos.Tutorial();
    audio.MusicaFondo();
 }
 
 void draw(){
+  
     graficos.Inicio();
     move.IniciaKinect();
     System.out.println(int(x1*1024));
