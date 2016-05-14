@@ -5,6 +5,9 @@ import java.lang.Math;
 Kinect kinect = new Kinect(this);
 ArrayList <SkeletonData> bodies = new ArrayList<SkeletonData>();
 
+float x1, x2, x3, x4, y1, y2, y3, y4, m, m1;
+double anguloRadianes, angulo, anguloRadianes1, angulo1;
+
 boolean hecho = false;
 int inicio, medio, fin;
 
@@ -14,13 +17,13 @@ class Movement
 {
   for (int i=0; i<bodies.size (); i++) 
   {
-    float x1= bodies.get(i).skeletonPositions[Kinect.NUI_SKELETON_POSITION_HAND_RIGHT].x;
-    float y1= bodies.get(i).skeletonPositions[Kinect.NUI_SKELETON_POSITION_HAND_RIGHT].y;
-    float x2= bodies.get(i).skeletonPositions[Kinect.NUI_SKELETON_POSITION_ELBOW_RIGHT].x;
-    float y2= bodies.get(i).skeletonPositions[Kinect.NUI_SKELETON_POSITION_ELBOW_RIGHT].y;
-    float m = ((y2-y1)/(x2-x1));
-    double anguloRadianes = Math.atan(m);
-    double angulo = Math.toDegrees(anguloRadianes);
+    x1= bodies.get(i).skeletonPositions[Kinect.NUI_SKELETON_POSITION_HAND_RIGHT].x;
+    y1= bodies.get(i).skeletonPositions[Kinect.NUI_SKELETON_POSITION_HAND_RIGHT].y;
+    x2= bodies.get(i).skeletonPositions[Kinect.NUI_SKELETON_POSITION_ELBOW_RIGHT].x;
+    y2= bodies.get(i).skeletonPositions[Kinect.NUI_SKELETON_POSITION_ELBOW_RIGHT].y;
+    m = ((y2-y1)/(x2-x1));
+    anguloRadianes = Math.atan(m);
+    angulo = Math.toDegrees(anguloRadianes);
     angulo = Math.abs(angulo);
     System.out.println("Arco Tangente de " + m + " = " + angulo + "º");
     System.out.println("Pendiente: "+m);
@@ -30,13 +33,13 @@ class Movement
     fill(0, 102, 153);
     text(angulo + "º", 10, 60);
     /////////////////////////////////////////
-    float x3= bodies.get(i).skeletonPositions[Kinect.NUI_SKELETON_POSITION_HAND_LEFT].x;
-    float y3= bodies.get(i).skeletonPositions[Kinect.NUI_SKELETON_POSITION_HAND_LEFT].y;
-    float x4= bodies.get(i).skeletonPositions[Kinect.NUI_SKELETON_POSITION_ELBOW_LEFT].x;
-    float y4= bodies.get(i).skeletonPositions[Kinect.NUI_SKELETON_POSITION_ELBOW_LEFT].y;
-    float m1 = ((y4-y3)/(x4-x3));
-    double anguloRadianes1 = Math.atan(m1);
-    double angulo1 = Math.toDegrees(anguloRadianes1);
+    x3= bodies.get(i).skeletonPositions[Kinect.NUI_SKELETON_POSITION_HAND_LEFT].x;
+    y3= bodies.get(i).skeletonPositions[Kinect.NUI_SKELETON_POSITION_HAND_LEFT].y;
+    x4= bodies.get(i).skeletonPositions[Kinect.NUI_SKELETON_POSITION_ELBOW_LEFT].x;
+    y4= bodies.get(i).skeletonPositions[Kinect.NUI_SKELETON_POSITION_ELBOW_LEFT].y;
+    m1 = ((y4-y3)/(x4-x3));
+    anguloRadianes1 = Math.atan(m1);
+    angulo1 = Math.toDegrees(anguloRadianes1);
     angulo1 = Math.abs(angulo1);
     System.out.println("Pendiente: "+m1);
     System.out.println("El ángulo es: "+angulo1);
@@ -78,5 +81,10 @@ class Movement
     }
     return false;
 
-}
+  }
+  
+  
+
+
+
 }
