@@ -1,22 +1,23 @@
 import java.lang.*;
 
+  int ManoinX;
+  int ManoinY;
   
-  float color1;
-  float color2;
-  float color3; 
+  int ManofinX;
+  int ManoFinY;
+    
+  int color1;
+  int color2;
+  int color3; 
+  float angle;
+  float aa, b, co, ca, c, c2;
+class Personaje{
   
-  float coorX;
-  float coorY;
-class Personaje {
-  
-  Personaje(float c1, float c2, float c3, float x, float y)
+  Personaje(int c1, int c2, int c3)
   {
     color1 = c1; 
     color2 = c2; 
     color3 = c3; 
-    
-    coorX = x;
-    coorY = y; 
     
   }
   
@@ -24,34 +25,35 @@ class Personaje {
   {    
     
     fill(color1,color2,color3);
-    ellipse(coorX,coorY,20,20);
+    ellipse(100,550,20,20);
     
     strokeWeight(7);
-    line(coorX,coorY,coorX,coorY+50);
-    line(coorX,coorY + 50,coorX - 20,coorY + 80);
-    line(coorX,coorY + 50,coorX + 20,coorY + 80);
+    line(100,550,100,600);
+    line(100,600,80,630);
+    line(100,600,110,630);
     
     
     
   }
   
-  void MovMan1(float angulo)
+  void MovMan1(float angle)
   {
-    float aa = radians(angulo);
+    aa = radians(angle);
     
-    float b; 
+     
     b = 30; 
-    float co = b * sin(aa);
-    float ca = b * cos(aa);
+    co = b * sin(aa);
+    ca = b * cos(aa);
     
-    println(ca, co, angulo);
+    println(ca, co, angle);
     
-    float c = coorY + 20 - co;
-    float c2 = ca + coorX; 
+    c = 550 - co;
+    c2 = ca + 100; 
     
-    line(coorX,coorY + 20, c2, c);
+    line(100,570, c2, c);
     noFill();
     arc(c2, c, 50, 50, -PI/2-aa,PI/2-aa );
       
   }
+  
 }
