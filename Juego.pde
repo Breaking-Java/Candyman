@@ -38,7 +38,6 @@ boolean gameOver = false;
 boolean golpe = false;
 
 class Juego{
-    
     void juegoIniciado(){
          if(mousePressed == true  && mouseY < 330)
          {
@@ -58,14 +57,13 @@ class Juego{
          if (mousePressed == false)
           {
             restFlecha();
-    
           }
          
          if(fuego == true)
          {
            System.out.println(velocidad.x);
            refreshFlecha();
-            fire();
+           fire();
          }
          
          

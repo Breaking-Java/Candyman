@@ -15,9 +15,9 @@ void setup()
    game = new Juego();
    uno = new Personaje(0,0,0);
    graficos.CargarGraficos();
-   graficos.Tutorial();
+   //graficos.Tutorial();
    audio.MusicaFondo();
-   frameRate(60);
+   //frameRate(60);
 }
 
 void draw(){

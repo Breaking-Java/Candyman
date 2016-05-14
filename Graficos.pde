@@ -1,8 +1,8 @@
-PImage menu, atras, atras2, b_iniciar, b_instruc, b_config, b_cred, b_salir, b_exit, bc_exit, b_home, bc_home, field, credits, mouseCursor, intento1,intento2,intento3,intento4,intento5, green_character, blue_character, brown_character, black_character, gris_menu, gris_salir, volume, no_volume, conf, b_yes, b_no, you_lose, you_won,start_instruction1;
+PImage menu, atras, atras2, b_iniciar, b_instruc, b_config, b_cred, b_salir, b_exit, bc_exit, b_home, bc_home, field, credits, mouseCursor, intento1,intento2,intento3,intento4,intento5, green_character, blue_character, brown_character, black_character, gris_menu, gris_salir, volume, no_volume, conf, b_yes, b_no, you_lose, you_won,start_instruction1,fatboy1;
 PImage[] control = new PImage[3];
 color ColorMono =color(70,43,1);
 boolean tuto=true;
-int Mx=0,My=0,num_pantalla = 7,frame;
+int Mx=0,My=0,num_pantalla = 1,frame;
 class Graficos
 {
   void CargarGraficos(){
@@ -43,6 +43,7 @@ class Graficos
     control[0]  = loadImage("images/00.png");
     control[1]  = loadImage("images/01.png"); 
     control[2]  = loadImage("images/02.png");
+    fatboy1 = loadImage("images/fatboy (1).png");
     //noCursor();
   }
   void Tutorial(){
@@ -89,8 +90,6 @@ class Graficos
     image(mouseCursor,Mx,My);
     if(Mx>658 && Mx<978 && My>170 && My<245){
     image(b_iniciar,653,161);
-    
-
       if (hecho){
        num_pantalla = 2;
        audio.ApagaFondo();
@@ -134,9 +133,9 @@ class Graficos
   void Juego()
   {
     background (field);
-    image(mouseCursor,Mx,My);
-    image(atras,100,100); 
-  
+    //image(mouseCursor,Mx,My);
+    //image(atras,100,100); 
+    game.juegoIniciado();
     if (hecho)
     { 
       if(Mx>100 && Mx<422 && My>100 && My<257)
