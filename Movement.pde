@@ -25,13 +25,6 @@ class Movement
     anguloRadianes = Math.atan(m);
     angulo = Math.toDegrees(anguloRadianes);
     angulo = Math.abs(angulo);
-    System.out.println("Arco Tangente de " + m + " = " + angulo + "º");
-    System.out.println("Pendiente: "+m);
-    System.out.println("El ángulo es: "+angulo);
-    textSize(45);
-    text("Ángulo de disparo: ", 10, 30); 
-    fill(0, 102, 153);
-    text(angulo + "º", 10, 60);
     /////////////////////////////////////////
     x3= bodies.get(i).skeletonPositions[Kinect.NUI_SKELETON_POSITION_HAND_LEFT].x;
     y3= bodies.get(i).skeletonPositions[Kinect.NUI_SKELETON_POSITION_HAND_LEFT].y;
@@ -41,50 +34,18 @@ class Movement
     anguloRadianes1 = Math.atan(m1);
     angulo1 = Math.toDegrees(anguloRadianes1);
     angulo1 = Math.abs(angulo1);
-    System.out.println("Pendiente: "+m1);
-    System.out.println("El ángulo es: "+angulo1);
-    textSize(45);
-    text("Ángulo: ", 10, 30); 
-    fill(0, 102, 153);
-    text(angulo1 + "º", 10, 60);
-    
-     hecho = swipe(angulo1);
-    
-   if(hecho){
-     System.out.println("Ya hiciste el swipe");
-   }
-   else System.out.println("No has hecho el swipe");
-   
+    hecho = swipe(angulo1);
   }
   }
   boolean swipe(double d){
-    inicio = medio = fin = 0;
-    if(d<=90 &&d>60){
-      System.out.println("Swipeinicio");
-      inicio=1;
-    }
-    
-    if(d<=60 && d>30){
-      System.out.println("Swipe medio");
-      medio=1;
-    
-    } 
-    
+    fin = 0;   
     if(d<=30 && d>=0){
       System.out.println("Swipe final");
       fin=1;
     }
-    
-    int swipe = inicio+medio+fin;
-    if(swipe==3){
+    if(fin==1){
       return true;
     }
     return false;
-
   }
-  
-  
-
-
-
 }

@@ -21,7 +21,8 @@ void setup()
 void draw(){
     graficos.Inicio();
     move.IniciaKinect();
-    System.out.println(numVida);
+    System.out.println(int(x1*1024));
+    System.out.println(int(y1*768));
 }
 
 void drawPosition(SkeletonData _s) 
