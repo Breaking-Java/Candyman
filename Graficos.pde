@@ -181,7 +181,7 @@ class Graficos
   /*Pantalla INSTRUCCIONES2*/
   void Instrucciones2()
   {
-    background(instruc1);
+    background(instruc2);
     image(mouseCursor,Mx,My);
     image(atras2,100,100);
      if (hecho)
@@ -196,7 +196,7 @@ class Graficos
   /*Pantalla INSTRUCCIONES3*/
   void Instrucciones3()
   {
-    background(instruc1);
+    background(instruc3);
     image(mouseCursor,Mx,My);
     image(atras2,100,100);
      if (hecho)
@@ -211,7 +211,7 @@ class Graficos
   /*Pantalla INSTRUCCIONES*/
   void Instrucciones4()
   {
-    background(instruc1);
+    background(instruc4);
     image(mouseCursor,Mx,My);
     image(atras2,100,100);
      if (hecho)
