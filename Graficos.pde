@@ -2,7 +2,7 @@ PImage menu, atras, atras2, b_iniciar, b_instruc, b_config, b_cred, b_salir, b_e
 PImage[] control = new PImage[3];
 color ColorMono =color(70,43,1);
 boolean tuto=true;
-int Mx=0,My=0,num_pantalla = 3,frame;
+int Mx=0,My=0,num_pantalla = 1,frame;
 class Graficos
 {
   void CargarGraficos(){
@@ -138,7 +138,8 @@ class Graficos
   {
     background (field);
     //image(mouseCursor,Mx,My);
-    //image(atras,100,100); 
+    //image(atras,100,100);
+    uno.DibMono();
     game.juegoIniciado();
     if (hecho)
     { 

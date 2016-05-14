@@ -186,16 +186,9 @@ public void refreshFlecha()
 {
   pushMatrix();
   translate(posicionX, posicionY);
-  rotate((float)angulo);
-  fill(34, 139, 34);
-  stroke(34, 139, 34);
-  rect(0, -2, barra, 4);
+  rotate((float)angulo); 
   popMatrix();
 }
- 
-
- 
-
  
 
  
