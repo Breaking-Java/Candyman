@@ -45,8 +45,7 @@ class Graficos
       case 1:
               IniciaMenu();//Menú principal.
               break;
-      case 2:
-              Ganaste();//Iniciar.
+      case 2://Iniciar.
               Juego();
               break;
       case 3:
@@ -248,7 +247,6 @@ class Graficos
     image(gris_menu, 820, 655);
     if (mousePressed && (mouseButton == LEFT)) {
      num_pantalla = 1;
-     audio.MusicaJuego();
     }
   }
   
