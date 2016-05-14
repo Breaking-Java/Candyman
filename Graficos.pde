@@ -9,7 +9,7 @@ class Graficos
       start_instruction1 = loadImage ("images/gesture_background.png");
     menu = loadImage("images/Menu.png");
     b_iniciar = loadImage("images/CInicio.png");
-    field = loadImage("images/Field.png");
+    field = loadImage("images/field.png");
     mouseCursor = loadImage("images/pinwheel.png");
     b_instruc = loadImage("images/change_instrucciones.png");
     b_config = loadImage("images/change_configuracion.png");
