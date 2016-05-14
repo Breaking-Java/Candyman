@@ -4,7 +4,8 @@ Graficos graficos;
 Audio audio;
 Config config;
 Movement move;
-//Juego game;
+Juego game;
+Personaje uno;
 
 void setup()
 {
@@ -13,9 +14,11 @@ void setup()
    audio = new Audio();
    config = new Config();
    move = new Movement();
-   //game = new Juego();
+   game = new Juego();
+   uno = new Personaje(0,0,0);
    graficos.CargarGraficos();
    audio.MusicaFondo();
+   frameRate(60);
 }
 
 void draw(){
@@ -23,6 +26,72 @@ void draw(){
     move.IniciaKinect();
     System.out.println(int(x1*1024));
     System.out.println(int(y1*768));
+}
+
+public void mouseReleased()
+{
+  if (mouseY < 330 && modoJuego == true && flechas > 0)
+  {
+    masa = random(10, 25);
+    posicion = new PVector(posicionX, posicionY);
+    velocidad = new PVector(-cos((float)angulo) * barra,
+               -sin((float)angulo) * barra);
+    aceleracion = new PVector((fuerza / masa) * 5, 0.5);
+ 
+    velocidad.add(aceleracion);
+    posicion.add(velocidad);
+     
+    golpe = false;
+    truco = false;
+    fallo = false;
+     
+    flechas--;
+    fuego = true;
+    game.fire();
+  }
+  else if(mouseY < 330 && modoJuego == false)
+  {
+    masa = random(10, 25);
+    posicion = new PVector(posicionX, posicionY);
+    velocidad = new PVector(-cos((float)angulo) * barra,
+               -sin((float) angulo) * barra);
+    aceleracion = new PVector(cos((float)angulo) * (fuerza / masa) * 5, 0.5);
+ 
+    velocidad.add(aceleracion);
+    posicion.add(velocidad);
+     
+    fuego = true;
+    game.fire();
+  }
+ 
+  if (mouseX > width - 130 && mouseX < width - 50 && mouseY > 340 && mouseY < 360)
+  {
+     game.refreshFlecha();
+    
+  }
+   
+  if (mouseX > width - 130 && mouseX < width - 50 && mouseY > 370 && mouseY < 390)
+  {
+    if (modoJuego == false)
+    {
+      modoJuego = true;
+      flechas = 3;
+            
+      tamanioGordo = (int)random(15, 30);
+     
+      posicionGordoX = (int)random(0, width - tamanioGordo);
+      posicionGordoY = (int)random(0, 330 - tamanioGordo);
+       
+      golpe = false;
+      truco= false;
+      fallo = false;
+      gameOver = false;
+    }
+    else
+    {
+      modoJuego = false;
+    }
+  }
 }
 
 void drawPosition(SkeletonData _s) 
