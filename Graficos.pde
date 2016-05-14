@@ -1,8 +1,8 @@
-PImage menu, atras, atras2, b_iniciar, b_instruc, b_config, b_cred, b_salir, b_exit, bc_exit, b_home, bc_home, field, credits, mouseCursor, intento1,intento2,intento3,intento4,intento5, green_character, blue_character, brown_character, black_character, gris_menu, gris_salir, volume, no_volume, conf, b_yes, b_no, you_lose, you_won,start_instruction1,fatboy1;
+PImage menu, atras, atras2, b_iniciar, b_instruc, b_config, b_cred, b_salir, b_exit, bc_exit, b_home, bc_home, field, credits, mouseCursor, intento1,intento2,intento3,intento4,intento5, green_character, blue_character, brown_character, black_character, gris_menu, gris_salir, volume, no_volume, conf, b_yes, b_no, you_lose, you_won,start_instruction1,fatboy1,instruc1,instruc2,instruc3,instruc4;
 PImage[] control = new PImage[3];
 color ColorMono =color(70,43,1);
 boolean tuto=true;
-int Mx=0,My=0,num_pantalla = 1,frame;
+int Mx=0,My=0,num_pantalla = 3,frame;
 class Graficos
 {
   void CargarGraficos(){
@@ -44,16 +44,11 @@ class Graficos
     control[1]  = loadImage("images/01.png"); 
     control[2]  = loadImage("images/02.png");
     fatboy1 = loadImage("images/fatboy (1).png");
+    instruc1 = loadImage("images/instruc1.png");
+    instruc2 = loadImage("images/instruc2.png");
+    instruc3 = loadImage("images/instruc3.png");
+    instruc4 = loadImage("images/instruc4.png");
     //noCursor();
-  }
-  void Tutorial(){
-      while(tuto){
-        background(start_instruction1);
-        System.out.println(frame);
-      frame = (frame+1) % 3;  //Para crear el ciclo
-      image(control[frame], 10, 200, 550, 385);
-      delay(1000);
-    if(frame==2){num_pantalla=1;}}
   }
   void Inicio(){
     Mx = int((x1*2)*1024);
@@ -70,16 +65,25 @@ class Graficos
               Instrucciones();//Instrucciones.
               break;
       case 4:
-              Configuracion();//Configuración.
+              Instrucciones1();//Instrucciones.
               break;
       case 5:
-              Creditos();//Créditos.
+              Instrucciones2();//Instrucciones.
               break;
       case 6:
-              exit();//Salir.
+              Instrucciones3();//Instrucciones.
               break;
       case 7:
-              Tutorial();
+              Instrucciones4();//Instrucciones.
+              break;
+      case 8:
+              Configuracion();//Configuración.
+              break;
+      case 9:
+              Creditos();//Créditos.
+              break;
+      case 10:
+              exit();//Salir.
               break;
     }
   }
@@ -101,7 +105,7 @@ class Graficos
     image(b_instruc,653,281);
     
           if (hecho){
-            num_pantalla = 3;
+            num_pantalla = 4;
           }
     }
     
@@ -109,7 +113,7 @@ class Graficos
     if(Mx>658 && Mx<978 && My>415 && My<490){
     image(b_config,653,401);
           if (hecho){
-            num_pantalla = 4;
+            num_pantalla = 8;
           }
     }
      
@@ -117,7 +121,7 @@ class Graficos
      if(Mx>658 && Mx<978 && My>535 && My<610){
      image(b_cred,653,522);
           if (hecho){
-            num_pantalla = 5;
+            num_pantalla = 9;
           }
      }
      
@@ -142,26 +146,82 @@ class Graficos
         num_pantalla = 1;
     }
   }
-  
-  
-  /*Pantalla INSTRUCCIONES*/
+  /*Pantalla INSTRUCCIONES Inicio*/
   void Instrucciones()
   {
-    background(255);
+    background(instruc1);
     image(mouseCursor,Mx,My);
     image(atras2,100,100);
-  
      if (hecho)
      {
        if(Mx>100 && Mx<242 && My>100 && My<204)
          num_pantalla = 1;
      }
-     
     fill(100,200,100);
     textSize(22);
     text("Pantalla VERDE", 30,30);
   }
   
+  /*Pantalla INSTRUCCIONES1*/
+  void Instrucciones1()
+  {
+    background(instruc1);
+    image(mouseCursor,Mx,My);
+    image(atras2,100,100);
+     if (hecho)
+     {
+       if(Mx>100 && Mx<242 && My>100 && My<204)
+         num_pantalla = 1;
+     }
+    fill(100,200,100);
+    textSize(22);
+    text("Pantalla VERDE", 30,30);
+  }
+  /*Pantalla INSTRUCCIONES2*/
+  void Instrucciones2()
+  {
+    background(instruc1);
+    image(mouseCursor,Mx,My);
+    image(atras2,100,100);
+     if (hecho)
+     {
+       if(Mx>100 && Mx<242 && My>100 && My<204)
+         num_pantalla = 1;
+     }
+    fill(100,200,100);
+    textSize(22);
+    text("Pantalla VERDE", 30,30);
+  }
+  /*Pantalla INSTRUCCIONES3*/
+  void Instrucciones3()
+  {
+    background(instruc1);
+    image(mouseCursor,Mx,My);
+    image(atras2,100,100);
+     if (hecho)
+     {
+       if(Mx>100 && Mx<242 && My>100 && My<204)
+         num_pantalla = 1;
+     }
+    fill(100,200,100);
+    textSize(22);
+    text("Pantalla VERDE", 30,30);
+  }
+  /*Pantalla INSTRUCCIONES*/
+  void Instrucciones4()
+  {
+    background(instruc1);
+    image(mouseCursor,Mx,My);
+    image(atras2,100,100);
+     if (hecho)
+     {
+       if(Mx>100 && Mx<242 && My>100 && My<204)
+         num_pantalla = 1;
+     }
+    fill(100,200,100);
+    textSize(22);
+    text("Pantalla VERDE", 30,30);
+  }
   void Configuracion()
 {
   background(conf);

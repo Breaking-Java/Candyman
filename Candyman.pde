@@ -17,15 +17,10 @@ void setup()
    graficos.CargarGraficos();
    //graficos.Tutorial();
    audio.MusicaFondo();
-   //frameRate(60);
 }
-
 void draw(){
-  
     graficos.Inicio();
     move.IniciaKinect();
-    System.out.println(int(x1*1024));
-    System.out.println(int(y1*768));
 }
 
 public void mouseReleased()
