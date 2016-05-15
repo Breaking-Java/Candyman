@@ -1,8 +1,8 @@
 //Mono//
 int numVida = 1;
 int posicionMonoX = 100;
-int posicionMonoY = 600;
-int barraWidth = 4;
+int posicionMonoY = 550;
+int barraWidth = 2;
 int maximoBarra = 30;
 int arcRestLength = 13;
 int arcRestAngulo = 94;
@@ -10,6 +10,7 @@ int arcRestRate = 9;
 float barra;
 float posicionX = posicionMonoX + (barraWidth/2);
 float posicionY = posicionMonoY + (barraWidth/2);
+double anguloRadianes2;
 
 //Propiedades del proyectil
 int diametro = 6;
@@ -39,40 +40,104 @@ boolean golpe = false;
 
 class Juego{
     void juegoIniciado(){
-         if(mousePressed == true  && mouseY < 330)
-         {
-            System.out.println("Hola");
-            posicionX = posicionMonoX + (barraWidth/2);
+         
+         if(My<600){
+           posicionX = posicionMonoX + (barraWidth/2);
             posicionY = posicionMonoY + (barraWidth/2);
-            barra = dist(posicionX, posicionY, mouseX, mouseY);
+            anguloRadianes2 = atan2(My - posicionY, Mx - posicionX);
+            barra = dist(My, Mx, posicionX, posicionY);
             if(barra > maximoBarra)
             {
                barra = maximoBarra; 
               
             }
             refreshFlecha();
-            fuerza = 10 * (barra / maximoBarra);
-         }
-         uno.MovMan1((float)angulo);
-         if (mousePressed == false)
-          {
-            restFlecha();
+            fuerza = 10 ;
           }
          
-         if(fuego == true)
-         {
-           System.out.println(velocidad.x);
-           refreshFlecha();
-           fire();
-         }
-         
-         
-         modoJuego();
-        
-   
-  //Prints messages if according to the game mode
-  
-  messages();
+         uno.MovMan1((float)angulo);
+      
+          if (hecho){
+              
+              if (My < 600 && modoJuego == true && flechas > 0)
+              {
+                masa = random(10, 25);
+                posicion = new PVector(posicionX, posicionY);
+                velocidad = new PVector(cos((float)anguloRadianes2) * barra,
+                           sin((float)anguloRadianes2) * barra);
+                aceleracion = new PVector((fuerza / masa) * 5, 0.5);
+             
+                velocidad.add(aceleracion);
+                posicion.add(velocidad);
+                 
+                golpe = false;
+                truco = false;
+                fallo = false;
+                 
+                flechas--;
+                fuego = true;
+                fire();
+              }
+              else if(My < 600 && modoJuego == false)
+              {
+                masa = random(10, 25);
+                posicion = new PVector(posicionX, posicionY);
+                velocidad = new PVector(cos((float)anguloRadianes2) * barra,
+                           sin((float) anguloRadianes2) * barra);
+                aceleracion = new PVector(cos((float)anguloRadianes2) * (fuerza / masa) * 5, 0.5);
+             
+                velocidad.add(aceleracion);
+                posicion.add(velocidad);
+                 
+                fuego = true;
+                fire();
+              }
+             
+              if (Mx > width - 130 && Mx < width - 50 && My > 340 && My < 360)
+              {
+                refreshFlecha();
+                
+              }
+               
+              if (Mx > width - 130 && Mx < width - 50 && My > 370 && My < 390)
+              {
+                if (modoJuego == false)
+                {
+                  modoJuego = true;
+                  flechas = 3;
+                        
+                  tamanioGordo = (int)random(15, 30);
+                 
+                  posicionGordoX = (int)random(0, width - tamanioGordo);
+                  posicionGordoY = (int)random(0, 330 - tamanioGordo);
+                   
+                  golpe = false;
+                  truco= false;
+                  fallo = false;
+                  gameOver = false;
+                }
+                else
+                {
+                  modoJuego = false;
+                }
+              }
+                      
+                      }
+                     
+                     if(fuego == true)
+                     {
+                       System.out.println(anguloRadianes2);
+                       refreshFlecha();
+                       fire();
+                     }
+                     
+                     
+                     modoJuego();
+                    
+               
+              //Prints messages if according to the game mode
+              
+              messages();
          
     }
     
@@ -155,38 +220,12 @@ class Juego{
 
 
 
- 
-//Actions to preform when the mouse has been released
 
- 
-//Moved the sling back to its "rest" posicion, only works with one quadrent :(
-public void restFlecha()
-{
-  if (angulo < radians(arcRestAngulo))
-  {
-    angulo = radians(arcRestAngulo);
-  }
-  else if (angulo != radians(arcRestAngulo))
-  {
-    angulo = angulo - radians(5);
-  }
- 
-  if (barra < arcRestLength )
-  {
-    barra = arcRestLength ;
-  }
-  else if (barra != arcRestLength )
-  {
-    barra = barra - arcRestRate;
-  }
-  refreshFlecha();
-}
- 
 public void refreshFlecha()
 {
   pushMatrix();
   translate(posicionX, posicionY);
-  rotate((float)angulo); 
+  rotate((float)anguloRadianes2); 
   popMatrix();
 }
  
@@ -279,4 +318,3 @@ public void messages()
   }
 }
 }
- 
