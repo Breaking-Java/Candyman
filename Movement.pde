@@ -8,8 +8,8 @@ ArrayList <SkeletonData> bodies = new ArrayList<SkeletonData>();
 float x1, x2, x3, x4, y1, y2, y3, y4, m, m1, x5,y5;
 double anguloRadianes, angulo, anguloRadianes1, angulo1;
 
-boolean hecho = false, arriba = false;
-int inicio, medio, fin;
+boolean hecho = false;
+int fin;
 
 class Movement
 {
@@ -36,12 +36,8 @@ class Movement
     angulo1 = Math.toDegrees(anguloRadianes1);
     angulo1 = Math.abs(angulo1);
     hecho = swipe();
-    
-    x5 = bodies.get(i).skeletonPositions[Kinect.NUI_SKELETON_POSITION_SHOULDER_LEFT].x;
-    y5= bodies.get(i).skeletonPositions[Kinect.NUI_SKELETON_POSITION_SHOULDER_LEFT].y;
-    arriba = manoArriba();
   }
-  }
+}
   boolean swipe(){
     fin = 0;   
     if(angulo1<=30 && angulo1>=0){
@@ -52,17 +48,5 @@ class Movement
       return true;
     }
     return false;
-  }
-  boolean manoArriba(){
-     medio = 0;
-     if(x3 > x5 && y3>y5){
-      
-      medio = 1;
-    }
-    if(medio==1){
-      return true;
-    }
-    return false;
-     
   }
 }

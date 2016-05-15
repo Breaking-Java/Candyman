@@ -1,11 +1,4 @@
-import java.lang.*;
-
-  int ManoinX;
-  int ManoinY;
-  
-  int ManofinX;
-  int ManoFinY;
-    
+import java.lang.*;    
   int color1;
   int color2;
   int color3; 
@@ -24,7 +17,7 @@ class Personaje{
   void DibMono()
   {    
     
-    fill(color1,color2,color3);
+    fill(ColorMono);
     ellipse(100,550,20,20);
     
     strokeWeight(7);
@@ -52,6 +45,5 @@ class Personaje{
     noFill();
     arc(c2, c, 50, 50, -PI/2-aa,PI/2-aa );
       
-  }
-  
+  } 
 }

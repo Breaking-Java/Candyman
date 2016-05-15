@@ -131,13 +131,7 @@ class Juego{
                      }
                      
                      
-                     modoJuego();
-                    
-               
-              //Prints messages if according to the game mode
-              
-
-         
+                     modoJuego();   
     }
     
     void fire(){
@@ -193,14 +187,7 @@ class Juego{
         golpes++;
         golpe=false;
       }
-      //if(intento==true){
-        //numVida--;
-    //intento=false;}
-      //if(numVida==0){
-        //num_pantalla=12;
-        //golpes =0;
-        //numVida=config.getVida();
-      //}
+      
       if(golpes==config.getVida()){
         num_pantalla=11;
       golpes =0;
