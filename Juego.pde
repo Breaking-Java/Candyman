@@ -203,7 +203,9 @@ class Juego{
       //}
       if(golpes==config.getVida()){
         num_pantalla=11;
-      golpes =0;}
+      golpes =0;
+      golpe=false;
+    }
       if(modoJuego == true)
       {
         stroke(0);
@@ -215,10 +217,6 @@ class Juego{
          modoJuego == true)
       {
         golpe = true;
-      }
-      if(posicion.x > 500 && posicion.x < posicionGordoX+128 && modoJuego == true)
-      {
-        intento = true;
       }
   }
     

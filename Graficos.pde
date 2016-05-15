@@ -360,6 +360,8 @@ class Graficos
     image(b_no,512,511);
     if (hecho) {
       num_pantalla=1;
+      audio.ApagaMusica();
+      audio.MusicaFondo();
     }
   }
   }
