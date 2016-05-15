@@ -44,9 +44,7 @@ class Personaje{
     b = 30; 
     co = b * sin(aa);
     ca = b * cos(aa);
-    
-    println(ca, co, angle);
-    
+        
     c = 550 - co;
     c2 = ca + 100; 
     

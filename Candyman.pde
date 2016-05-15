@@ -15,16 +15,11 @@ void setup()
    game = new Juego();
    uno = new Personaje(0,0,0);
    graficos.CargarGraficos();
-   //graficos.Tutorial();
-   audio.MusicaFondo();
-   frameRate(60);
 }
 void draw(){
     graficos.Inicio();
     move.IniciaKinect();
 }
-
-
 
 void drawPosition(SkeletonData _s) 
 {

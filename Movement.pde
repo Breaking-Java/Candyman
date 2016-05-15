@@ -5,10 +5,10 @@ import java.lang.Math;
 Kinect kinect = new Kinect(this);
 ArrayList <SkeletonData> bodies = new ArrayList<SkeletonData>();
 
-float x1, x2, x3, x4, y1, y2, y3, y4, m, m1;
+float x1, x2, x3, x4, y1, y2, y3, y4, m, m1, x5,y5;
 double anguloRadianes, angulo, anguloRadianes1, angulo1;
 
-boolean hecho = false;
+boolean hecho = false, arriba = false;
 int inicio, medio, fin;
 
 class Movement
@@ -30,22 +30,39 @@ class Movement
     y3= bodies.get(i).skeletonPositions[Kinect.NUI_SKELETON_POSITION_HAND_LEFT].y;
     x4= bodies.get(i).skeletonPositions[Kinect.NUI_SKELETON_POSITION_ELBOW_LEFT].x;
     y4= bodies.get(i).skeletonPositions[Kinect.NUI_SKELETON_POSITION_ELBOW_LEFT].y;
+    
     m1 = ((y4-y3)/(x4-x3));
     anguloRadianes1 = Math.atan(m1);
     angulo1 = Math.toDegrees(anguloRadianes1);
     angulo1 = Math.abs(angulo1);
-    hecho = swipe(angulo1);
+    hecho = swipe();
+    
+    x5 = bodies.get(i).skeletonPositions[Kinect.NUI_SKELETON_POSITION_SHOULDER_LEFT].x;
+    y5= bodies.get(i).skeletonPositions[Kinect.NUI_SKELETON_POSITION_SHOULDER_LEFT].y;
+    arriba = manoArriba();
   }
   }
-  boolean swipe(double d){
+  boolean swipe(){
     fin = 0;   
-    if(d<=30 && d>=0){
-      System.out.println("Swipe final");
+    if(angulo1<=30 && angulo1>=0){
+      
       fin=1;
     }
     if(fin==1){
       return true;
     }
     return false;
+  }
+  boolean manoArriba(){
+     medio = 0;
+     if(x3 > x5 && y3>y5){
+      
+      medio = 1;
+    }
+    if(medio==1){
+      return true;
+    }
+    return false;
+     
   }
 }

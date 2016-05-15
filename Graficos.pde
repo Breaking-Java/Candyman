@@ -1,8 +1,8 @@
-PImage menu, atras, atras2, b_iniciar, b_instruc, b_config, b_cred, b_salir, b_exit, bc_exit, b_home, bc_home, field, credits, mouseCursor, intento1,intento2,intento3,intento4,intento5, green_character, blue_character, brown_character, black_character, gris_menu, gris_salir, volume, no_volume, conf, b_yes, b_no, you_lose, you_won,start_instruction1,fatboy1,instruc1,instruc2,instruc3,instruc4;
+PImage menu, atras, atras2, b_iniciar, b_instruc, b_config, b_cred, b_salir, b_exit, bc_exit, b_home, bc_home, field, credits, mouseCursor, intento1,intento2,intento3,intento4,intento5, green_character, blue_character, brown_character, black_character, gris_menu, gris_salir, volume, no_volume, conf, b_yes, b_no, you_lose, you_won,start_instruction1,fatboy1,instruc1,instruc2,instruc3,instruc4,tutorial, b_continue;;
 PImage[] control = new PImage[3];
 color ColorMono =color(70,43,1);
 boolean tuto=true;
-int Mx=0,My=0,num_pantalla = 1,frame;
+int Mx=0,My=0,num_pantalla = 3,frame;
 class Graficos
 {
   void CargarGraficos(){
@@ -48,7 +48,9 @@ class Graficos
     instruc2 = loadImage("images/instruc2.png");
     instruc3 = loadImage("images/instruc3.png");
     instruc4 = loadImage("images/instruc4.png");
-    noCursor();
+    tutorial = loadImage ("images/Tuto.png");
+    b_continue = loadImage ("images/continue.png");
+    //noCursor();
   }
   void Inicio(){
     Mx = int((x1*2)*1024);
@@ -84,6 +86,12 @@ class Graficos
               break;
       case 10:
               exit();//Salir.
+              break;
+      case 11:
+              Ganaste();
+              break;
+      case 12:
+              Perdiste();
               break;
     }
   }
@@ -129,7 +137,7 @@ class Graficos
      if(Mx>20 && Mx<340 && My>670 && My<745){
      image(b_salir,19,659);
           if (hecho){
-            num_pantalla = 6;
+            num_pantalla = 10;
           }
      }
   }
@@ -150,16 +158,15 @@ class Graficos
   /*Pantalla INSTRUCCIONES Inicio*/
   void Instrucciones()
   {
-    background(instruc1);
+    background (tutorial);
     image(mouseCursor,Mx,My);
-    image(atras2,100,100);
-     if (hecho)
-     {
-       if(Mx>100 && Mx<242 && My>100 && My<204)
-         num_pantalla = 1;
-     }
-    fill(100,200,100);
-    textSize(22);
+    if (Mx>845 && Mx<985 && My>583 && My<723) {
+    image(b_continue, 845,583);
+    if (hecho) {
+      num_pantalla=1;
+      audio.MusicaFondo();
+    }
+  }
   }
   
   /*Pantalla INSTRUCCIONES1*/
@@ -175,6 +182,7 @@ class Graficos
      }
     fill(100,200,100);
     textSize(22);
+    text("Pantalla VERDE", 30,30);
   }
   /*Pantalla INSTRUCCIONES2*/
   void Instrucciones2()
@@ -189,6 +197,7 @@ class Graficos
      }
     fill(100,200,100);
     textSize(22);
+    text("Pantalla VERDE", 30,30);
   }
   /*Pantalla INSTRUCCIONES3*/
   void Instrucciones3()
@@ -203,6 +212,7 @@ class Graficos
      }
     fill(100,200,100);
     textSize(22);
+    text("Pantalla VERDE", 30,30);
   }
   /*Pantalla INSTRUCCIONES*/
   void Instrucciones4()
@@ -217,6 +227,7 @@ class Graficos
      }
     fill(100,200,100);
     textSize(22);
+    text("Pantalla VERDE", 30,30);
   }
   void Configuracion()
 {
@@ -355,11 +366,13 @@ class Graficos
     if (Mx>255 && Mx<512 && My>511 && My<575) {
     image(b_yes, 255,511);
     if (hecho) {
+      num_pantalla=2;
     }
   }
   if (Mx>512 && Mx<769 && My>511 && My<575) {
     image(b_no,512,511);
     if (hecho) {
+      num_pantalla=1;
     }
   }
   }
@@ -369,11 +382,13 @@ class Graficos
     if (Mx>255 && Mx<512 && My>511 && My<575) {
     image(b_yes, 255,511);
     if (hecho) {
+      num_pantalla=2;
     }
   }
     if (Mx>512 && Mx<769 && My>511 && My<575) {
     image(b_no,512,511);
     if (hecho) {
+      num_pantalla=1;
     }
   }
   }

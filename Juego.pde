@@ -1,7 +1,7 @@
 //Mono//
-int numVida = 1;
+int numVida = 3;
 int posicionMonoX = 100;
-int posicionMonoY = 550;
+int posicionMonoY = 500;
 int barraWidth = 2;
 int maximoBarra = 30;
 int arcRestLength = 13;
@@ -11,6 +11,7 @@ float barra;
 float posicionX = posicionMonoX + (barraWidth/2);
 float posicionY = posicionMonoY + (barraWidth/2);
 double anguloRadianes2;
+int golpes=0;
 
 //Propiedades del proyectil
 int diametro = 6;
@@ -27,11 +28,11 @@ float gravedad = 10;
 float absorcionDeEnergia = 0.02;
 
 //Modo de Juego
-int flechas = 5;
+ 
 int tamanioGordo = (int) random(20,30);
 int posicionGordoX, posicionGordoY;
 
-boolean fuego;
+boolean fuego,intento=false;
 boolean modoJuego = true;
 boolean truco = false;
 boolean fallo = false;
@@ -58,8 +59,7 @@ class Juego{
          uno.MovMan1((float)angulo);
       
           if (hecho){
-              
-              if (My < 600 && modoJuego == true && flechas > 0)
+              if (My < 600 && modoJuego == true)
               {
                 masa = random(10, 25);
                 posicion = new PVector(posicionX, posicionY);
@@ -74,7 +74,7 @@ class Juego{
                 truco = false;
                 fallo = false;
                  
-                flechas--;
+                
                 fuego = true;
                 fire();
               }
@@ -104,7 +104,7 @@ class Juego{
                 if (modoJuego == false)
                 {
                   modoJuego = true;
-                  flechas = 3;
+                  
                         
                   tamanioGordo = (int)random(15, 30);
                  
@@ -126,7 +126,6 @@ class Juego{
                      
                      if(fuego == true)
                      {
-                       System.out.println(anguloRadianes2);
                        refreshFlecha();
                        fire();
                      }
@@ -137,7 +136,7 @@ class Juego{
                
               //Prints messages if according to the game mode
               
-              messages();
+
          
     }
     
@@ -188,31 +187,39 @@ class Juego{
   }
   
   void modoJuego(){
-      if(tamanioGordo == 0)
-      {
-        tamanioGordo = (int)random(15, 30);
-         
-        posicionGordoX = (int)random(0, width - tamanioGordo);
-        posicionGordoY = (int)random(0, 630 - tamanioGordo);
+       if(golpes==0||golpe==true){
+        posicionGordoX = (int)random(600, width );
+        posicionGordoY = (int)random(300, 600);
+        golpes++;
+        golpe=false;
       }
-       
+      //if(intento==true){
+        //numVida--;
+    //intento=false;}
+      //if(numVida==0){
+        //num_pantalla=12;
+        //golpes =0;
+        //numVida=config.getVida();
+      //}
+      if(golpes==7){
+        num_pantalla=11;
+      golpes =0;
+        numVida=config.getVida();}
       if(modoJuego == true)
       {
         stroke(0);
         image(fatboy1, posicionGordoX, posicionGordoY);
       }
        
-      if(posicion.x > posicionGordoX && posicion.x < posicionGordoX + tamanioGordo &&
-         posicion.y > posicionGordoY && posicion.y < posicionGordoY + tamanioGordo &&
+      if(posicion.x > posicionGordoX && posicion.x < posicionGordoX+128 &&
+         posicion.y > posicionGordoY && posicion.y < posicionGordoY+128 &&
          modoJuego == true)
       {
-        flechas = 5;
-         
         golpe = true;
-         
-        tamanioGordo = (int)random(15, 30);
-        posicionGordoX = (int)random(0, width - tamanioGordo);
-        posicionGordoY = (int)random(0, 630 - tamanioGordo);
+      }
+      if(posicion.x > 500 && posicion.x < posicionGordoX+128 && modoJuego == true)
+      {
+        intento = true;
       }
   }
     
@@ -231,90 +238,5 @@ public void refreshFlecha()
  
 
  
-public void messages()
-{
-  if(modoJuego == true)
-  {
-    if(flechas == 0 && (velocidad.x == 0 || posicion.x > width || posicion.x < 0))
-    {
-      gameOver = true;
-      flechas++;
-    }
-     
-    if(gameOver == true)
-    {
-      fallo = false;
-      truco = false;
-       
-      textSize(36);
-      textAlign(CENTER);
-      fill(255, 0 , 0);
-      text("GAME OVER\nYOU LOSE", width / 2, 170);
-      posicionGordoX = -100;
-      posicionGordoY = -100;
-       
-      textSize(24);
-      fill(220);
-      rect(width * .75, 60, 150, 80);
-      rect(width * .75, 190, 150, 80);
-      fill(0);
-      text("New Game", width * .75 + 75, 105);
-      text("Exit Game \nMode", width * .75 + 75, 225);
-      textSize(12);
-      text("(Shoot to select)", width / 2, 230);
-       
-      if(posicion.x > width * .75 && posicion.x < width * .75 + 80 &&
-         posicion.y > 60 && posicion.y < 140)
-      {
-        modoJuego = true;
-        flechas = 5;
-        
-       
-        tamanioGordo = (int)random(15, 30);
-     
-        posicionGordoX = (int)random(0, width - tamanioGordo);
-        posicionGordoY = (int)random(0, 330 - tamanioGordo);
-     
-        golpe = false;
-        truco = false;
-        fallo = false;
-        gameOver = false;
-      }
-       
-      if(posicion.x > width * .75 && posicion.x < width * .75 + 80 &&
-              posicion.y > 190 && posicion.y < 270)
-      {
-        modoJuego = false;
-      }
-    }
-     
-    if(golpe == true && truco == true)
-    {
-      fallo = false;
-      gameOver = false;
- 
-      textSize(36);
-      textAlign(CENTER);
-      fill(255, 0 , 0);
-      text("TRICK SHOT!", width / 2, 170);
-    }
-     
-    if(fallo == true && golpe == false && truco == false)
-    {
-      truco = false;
-      gameOver = false;
-       
-      textSize(36);
-      textAlign(CENTER);
-      fill(255, 0 , 0);
-      text("fallo!", width / 2, 170);
-    }
-  }
-   
-  if(posicion.x > posicionGordoX && modoJuego == true && golpe == false)
-  {
-    fallo = true;
-    truco = false;
-  }
-}
+
 }
