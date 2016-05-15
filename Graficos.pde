@@ -48,7 +48,7 @@ class Graficos
     instruc2 = loadImage("images/instruc2.png");
     instruc3 = loadImage("images/instruc3.png");
     instruc4 = loadImage("images/instruc4.png");
-    //noCursor();
+    noCursor();
   }
   void Inicio(){
     Mx = int((x1*2)*1024);
@@ -160,7 +160,6 @@ class Graficos
      }
     fill(100,200,100);
     textSize(22);
-    text("Pantalla VERDE", 30,30);
   }
   
   /*Pantalla INSTRUCCIONES1*/
@@ -176,7 +175,6 @@ class Graficos
      }
     fill(100,200,100);
     textSize(22);
-    text("Pantalla VERDE", 30,30);
   }
   /*Pantalla INSTRUCCIONES2*/
   void Instrucciones2()
@@ -191,7 +189,6 @@ class Graficos
      }
     fill(100,200,100);
     textSize(22);
-    text("Pantalla VERDE", 30,30);
   }
   /*Pantalla INSTRUCCIONES3*/
   void Instrucciones3()
@@ -206,7 +203,6 @@ class Graficos
      }
     fill(100,200,100);
     textSize(22);
-    text("Pantalla VERDE", 30,30);
   }
   /*Pantalla INSTRUCCIONES*/
   void Instrucciones4()
@@ -221,7 +217,6 @@ class Graficos
      }
     fill(100,200,100);
     textSize(22);
-    text("Pantalla VERDE", 30,30);
   }
   void Configuracion()
 {
