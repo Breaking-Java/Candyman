@@ -201,10 +201,9 @@ class Juego{
         //golpes =0;
         //numVida=config.getVida();
       //}
-      if(golpes==7){
+      if(golpes==config.getVida()){
         num_pantalla=11;
-      golpes =0;
-        numVida=config.getVida();}
+      golpes =0;}
       if(modoJuego == true)
       {
         stroke(0);
