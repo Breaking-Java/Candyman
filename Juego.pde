@@ -188,7 +188,7 @@ class Juego{
         golpe=false;
       }
       
-      if(golpes==config.getVida()){
+      if(golpes==config.getVida()+3){
         num_pantalla=11;
       golpes =0;
       golpe=false;

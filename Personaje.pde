@@ -19,7 +19,7 @@ class Personaje{
     
     fill(ColorMono);
     ellipse(100,550,20,20);
-    
+    stroke(ColorMono);
     strokeWeight(7);
     line(100,550,100,600);
     line(100,600,80,630);
@@ -40,7 +40,8 @@ class Personaje{
         
     c = 550 - co;
     c2 = ca + 100; 
-    
+    fill(ColorMono);
+    stroke(ColorMono);
     line(100,570, c2, c);
     noFill();
     arc(c2, c, 50, 50, -PI/2-aa,PI/2-aa );
